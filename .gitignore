@@ -1,0 +1,9 @@
+dist/
+__pycache__/
+*.pyc
+.env
+.env.*
+.checkpoints/
+.redesign-backup/
+.DS_Store
+Thumbs.db

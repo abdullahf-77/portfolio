@@ -1,0 +1,27 @@
+/* Artwork only: existing content, cards, fonts, room and navigation are retained. */
+#treeCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.tree-face{position:absolute;top:110px;left:55%;width:390px;transform:translateX(-50%);z-index:4;pointer-events:none}
+.tree-face img{display:block;width:100%;height:auto}
+/* whole pupils follow the pointer; boxes match the crops in assets/art/eyes (1000px artwork) */
+/* the drawn eyes show until every eye layer has loaded, so an eye is never empty */
+.tree-eye{visibility:hidden}.tree-face.eyes-ready .tree-eye{visibility:visible}
+.tree-eye{position:absolute;width:20%;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+.tree-eye img{position:absolute;inset:0;width:100%;height:100%}
+/* --bx centres each pupil in its own eye (the artwork has the right one looking left),
+   so both look straight ahead at rest and move in parallel; 1 artwork px = .5% of the box */
+.tree-eye__pupil{transform:translate(calc(var(--eye-x,0px) + var(--bx,0%)),var(--eye-y,0px));transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.tree-eye--left{--bx:-.7%}.tree-eye--right{--bx:3.2%}
+.tree-eye--left{left:30%;top:54.5%;height:21.5%;-webkit-mask-image:url('../assets/art/eyes/left-socket.png');mask-image:url('../assets/art/eyes/left-socket.png')}
+.tree-eye--right{left:58.5%;top:50.5%;height:22%;-webkit-mask-image:url('../assets/art/eyes/right-socket.png');mask-image:url('../assets/art/eyes/right-socket.png')}
+.tree-ground{height:290px;position:relative;pointer-events:none}
+.head-slot{background:none!important}
+/* The obsolete animation's spacer and mobile portrait slot are no longer needed. */
+@media(max-width:999px){
+  .hero{padding-top:402px;min-height:1130px}
+  .scroll-cue{top:570px}
+  .head-slot{display:none}
+  .tree-face{top:90px;left:50%;width:270px;z-index:4}
+  .tree-ground{height:215px}
+}
+@media(max-width:380px){.hero{padding-top:370px}.tree-ground{height:200px}}
+@media(prefers-reduced-motion:reduce){.tree-face,.tree-eye{will-change:auto}}

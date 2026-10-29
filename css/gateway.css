@@ -1,0 +1,193 @@
+/* Gateway yard. Same study, palette and hand type as Version B: soot, charcoal, parchment, oxblood, scarlet. */
+@font-face{font-family:Gaegu;src:url('../assets/fonts/gaegu.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Patrick Hand';src:url('../assets/fonts/patrick-hand.ttf') format('truetype');font-weight:400;font-display:swap}
+:root{
+  --bg:#080909;--ink:#ecd8c7;--muted:#b6aaa1;--dim:#9a8b83;--red:#e73b42;--red-hi:#ff6864;--red-deep:#701c23;--soot:#120807;
+  --font-hand:Gaegu,'Comic Sans MS',cursive;--font-body:'Patrick Hand','Comic Sans MS',cursive;
+  /* board width drives the whole sign so both stay identical in size */
+  --bw:min(29vw,440px,calc((100svh - 330px) * 1));
+  --gap:clamp(36px,8vw,150px);--post:clamp(46px,15svh,180px);--floor:5.5svh;
+  /* dark grain with a few warm streaks; vertical twin for posts */
+  --wood:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005 0.11' numOctaves='4' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0 0.015 1.7 0 0 0 -0.62'/%3E%3C/filter%3E%3Cfilter id='h'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.2' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.62 0 0 0 0 0.33 0 0 0 0 0.24 0 1.5 0 0 -0.86'/%3E%3C/filter%3E%3Crect width='420' height='420' fill='%23402218'/%3E%3Crect width='420' height='420' filter='url(%23g)'/%3E%3Crect width='420' height='420' filter='url(%23h)'/%3E%3C/svg%3E");
+  --wood-v:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='420'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.16 0.006' numOctaves='4' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0 0.015 1.7 0 0 0 -0.6'/%3E%3C/filter%3E%3Crect width='120' height='420' fill='%23361c14'/%3E%3Crect width='120' height='420' filter='url(%23g)'/%3E%3C/svg%3E");
+  --paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' seed='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.18 0 0 0 0 0.12 0 0 0 0.9 -0.3'/%3E%3C/filter%3E%3Crect width='300' height='300' fill='%23c9b39b'/%3E%3Crect width='300' height='300' filter='url(%23p)'/%3E%3C/svg%3E");
+  color-scheme:dark
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;min-height:100svh;background:var(--bg);color:var(--ink);font:19px/1.4 var(--font-body);overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit;-webkit-tap-highlight-color:transparent}
+.red{color:var(--red)}
+:focus-visible{outline:2px solid var(--red-hi);outline-offset:6px}
+body::after{content:'';position:fixed;inset:0;box-shadow:inset 0 0 110px #0007;pointer-events:none;z-index:8}
+
+/* ---------- the room ---------- */
+.room{position:fixed;inset:0;z-index:0;pointer-events:none;background:url('../assets/art/study.webp') center bottom/cover no-repeat;filter:brightness(.88) saturate(.92);transition:filter 1s ease,opacity 1s ease}
+.room::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,3,4,.25),transparent 26%,transparent 78%,rgba(0,3,4,.2)),radial-gradient(ellipse at 50% 55%,transparent 45%,#03050666 100%)}
+.room__crt,.room__lamp{position:absolute;border-radius:50%;mix-blend-mode:screen;animation:flicker 6s steps(1) infinite}
+.room__crt{left:-6%;top:44%;width:34vw;height:34vw;background:radial-gradient(circle,#ff2a2a2e,transparent 62%)}
+.room__lamp{right:-8%;top:36%;width:38vw;height:38vw;background:radial-gradient(circle,#ff3b2f33,transparent 60%);animation-duration:7.3s;animation-delay:-2s}
+.room__fog{position:absolute;left:-10%;right:-10%;bottom:-4svh;height:26svh;background:radial-gradient(ellipse at 30% 100%,#2a0d0d66,transparent 60%),radial-gradient(ellipse at 75% 100%,#1a0a0a77,transparent 62%);filter:blur(8px);animation:drift 18s ease-in-out infinite alternate}
+.embers{position:absolute;inset:0;overflow:hidden}
+.ember{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:#ff5b4f;box-shadow:0 0 6px 1px #ff2a2a88;opacity:0;animation:rise linear infinite}
+@keyframes flicker{0%,100%{opacity:1}12%{opacity:.82}14%{opacity:1}57%{opacity:.9}60%{opacity:.7}62%{opacity:1}}
+@keyframes drift{from{transform:translateX(-3%)}to{transform:translateX(3%)}}
+@keyframes rise{0%{opacity:0;transform:translate(0,0)}10%{opacity:.8}80%{opacity:.5}100%{opacity:0;transform:translate(var(--dx,20px),-70svh)}}
+
+/* ---------- world (the camera moves this on enter) ---------- */
+.world{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;align-items:center;padding:clamp(22px,4.5svh,52px) 16px 0}
+.intro{text-align:center;max-width:720px;position:relative;transition:opacity .5s ease,transform .8s ease}
+.intro::before{content:'';position:absolute;inset:-20px -40px;z-index:-1;background:#05070888;filter:blur(24px);border-radius:50%}
+.intro__logo{margin:0 0 4px;font:700 38px/1 var(--font-hand);letter-spacing:-4px}
+.intro__logo span{color:var(--red);margin-left:6px}
+.intro__title{margin:0;font:400 clamp(36px,4.4vw,60px)/1.02 var(--font-body);text-shadow:0 3px 8px #0009}
+.intro__sub{margin:10px auto 0;color:var(--muted);font-size:clamp(17px,1.5vw,20px);max-width:36ch}
+
+.yard{position:relative;margin-top:auto;display:flex;justify-content:center;align-items:flex-end;gap:var(--gap);padding:clamp(18px,3svh,40px) 0 var(--floor);width:100%}
+
+
+/* ---------- signboards ---------- */
+.sign{position:relative;z-index:2;display:block;width:var(--bw);text-decoration:none;color:var(--ink);outline:none;transition:transform .7s cubic-bezier(.5,0,.3,1),opacity .6s ease}
+.sign__sway{position:relative;display:flex;flex-direction:column;align-items:center;padding-bottom:var(--post);transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
+.sign--b .sign__sway{animation-duration:8.2s;animation-delay:-3.4s}
+@keyframes sway{0%,100%{transform:rotate(-.55deg)}50%{transform:rotate(.65deg)}}
+
+.sign__board{position:relative;z-index:2;display:block;width:100%;aspect-ratio:10/7;transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px));transition:transform .45s cubic-bezier(.3,1.3,.5,1);filter:drop-shadow(14px 22px 18px #000b)}
+.sign__wood{position:absolute;inset:0;border-radius:9px 14px 7px 12px / 12px 8px 14px 9px;
+  background:repeating-linear-gradient(180deg,transparent 0 calc(33.33% - 4px),#140806 calc(33.33% - 4px) calc(33.33% - 1px),#5a2f2244 calc(33.33% - 1px) 33.33%),var(--wood) 0 0/420px 420px;
+  box-shadow:0 0 0 3px var(--soot),inset 0 0 0 1px #6b3a2a66,inset 0 0 34px #000c;filter:url(#rough)}
+/* red rim from the room's light sources: CRT on the left, lamp on the right */
+.sign__wood::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none}
+.sign--a .sign__wood::after{background:linear-gradient(90deg,#ff2d2d38,transparent 22%),linear-gradient(0deg,#00000066,transparent 30%)}
+.sign--b .sign__wood::after{background:linear-gradient(270deg,#ff3a2d3d,transparent 22%),linear-gradient(0deg,#00000066,transparent 30%)}
+
+.sign__poster{position:absolute;inset:8.5% 7.5% 9.5%;display:block;transform:rotate(var(--pr,-.8deg));transition:transform .5s ease}
+.sign--b .sign__poster{--pr:.7deg}
+.sign__poster::before{content:'';position:absolute;inset:-2.6%;z-index:-1;background:var(--paper);box-shadow:3px 7px 12px #000d;filter:url(#rough-soft)}
+.sign__poster img{width:100%;height:100%;object-fit:cover;object-position:center top;border:1px solid #1b0d0a;filter:saturate(.55) sepia(.26) brightness(.78) contrast(1.05);transition:filter .5s ease}
+.sign__poster::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 45%,#14050577 100%),linear-gradient(180deg,#00000022,transparent 30%);transition:opacity .5s ease}
+
+.nail{position:absolute;width:max(7px,2.1%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b9786a,#4a2620 45%,#0d0605 75%);box-shadow:0 1px 2px #000,0 0 0 1px #000a;z-index:3}
+.nail--tl{left:2.6%;top:4%}.nail--tr{right:2.6%;top:4.5%}.nail--bl{left:3%;bottom:4.5%}.nail--br{right:2.4%;bottom:4%}
+
+/* soft illumination that blooms on the wall behind the board */
+.sign__glow{position:absolute;inset:-22% -16%;z-index:-1;border-radius:50%;background:radial-gradient(ellipse,#e3262e40,#a0151a18 45%,transparent 70%);opacity:.25;transition:opacity .5s ease;pointer-events:none}
+
+.sign__label{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;width:66%;margin-top:calc(var(--bw) * -.035);padding:calc(var(--bw) * .022) 6% calc(var(--bw) * .026);transform:rotate(var(--lr,-1.6deg));text-align:center;filter:drop-shadow(5px 9px 8px #000c)}
+.sign--b .sign__label{--lr:1.3deg}
+.sign__label .sign__wood{border-radius:6px 10px 5px 9px}
+.sign__ver{position:relative;font:700 max(14px,calc(var(--bw) * .042))/1 var(--font-hand);color:var(--red-hi);letter-spacing:.5px;text-shadow:0 0 10px #ff2a2a55,0 1px 0 #000}
+.sign__name{position:relative;font:400 max(19px,calc(var(--bw) * .072))/1.05 var(--font-body);color:#f1ddca;text-shadow:0 2px 0 #000,0 0 14px #0009;white-space:nowrap}
+.sign__name::after{content:'';display:block;height:2px;margin:3px auto 0;width:0;background:var(--red);transform:rotate(-2deg);transition:width .45s ease}
+
+.sign__post{position:absolute;z-index:1;left:50%;top:calc(var(--bw) * .3);bottom:0;width:max(13px,calc(var(--bw) * .085));transform:translateX(-50%) rotate(.4deg);border-radius:3px 4px 2px 3px;
+  background:linear-gradient(90deg,#00000088,transparent 30%,transparent 65%,#000000aa),linear-gradient(0deg,#0b0504 0,transparent 9%),var(--wood-v) 0 0/120px 420px;
+  box-shadow:0 0 0 2.5px var(--soot);filter:url(#rough)}
+.sign--b .sign__post{transform:translateX(-50%) rotate(-.5deg)}
+
+/* grounded shadows: a wide soft cast plus a tight contact stain at the post */
+.sign__shadow{position:absolute;left:50%;bottom:calc(var(--floor) * -.25);width:82%;height:clamp(16px,2.6svh,30px);transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,#000000e0 0,#000000b0 18%,#00000055 50%,transparent 72%);z-index:0;pointer-events:none;transition:width .5s ease,opacity .5s ease}
+.sign__shadow::after{content:'';position:absolute;left:50%;top:50%;width:22%;height:70%;transform:translate(-50%,-50%);border-radius:50%;background:#000;filter:blur(3px)}
+.sign--a .sign__shadow{translate:6% 0}.sign--b .sign__shadow{translate:-6% 0}
+
+/* hover / keyboard focus: lift, tilt toward pointer, light up */
+.sign:hover,.sign:focus-visible{--lift:-8px}
+.sign:hover .sign__glow,.sign:focus-visible .sign__glow{opacity:1}
+.sign:hover .sign__poster img,.sign:focus-visible .sign__poster img{filter:saturate(.95) sepia(.05) brightness(.97) contrast(1)}
+.sign:hover .sign__poster::after,.sign:focus-visible .sign__poster::after{opacity:.4}
+.sign:hover .sign__name::after,.sign:focus-visible .sign__name::after{width:70%}
+.sign:hover .sign__shadow,.sign:focus-visible .sign__shadow{width:74%;opacity:.85}
+.sign:focus-visible .sign__wood{box-shadow:0 0 0 3px var(--soot),0 0 0 6px #ff686499,inset 0 0 34px #000c}
+
+/* compare: a scrap of paper dropped on the rug between the posts */
+.scrap{position:absolute;z-index:3;left:50%;bottom:calc(var(--floor) * .55);transform:translateX(-50%) rotate(-4deg);padding:8px 14px 7px;border:0;background:var(--paper);color:#2a1611;font:400 17px/1.1 var(--font-body);box-shadow:3px 6px 10px #000c;filter:url(#rough-soft) brightness(.8);opacity:.85;transition:opacity .3s,transform .3s,filter .3s;white-space:nowrap;min-height:40px}
+.scrap::before{content:'';position:absolute;top:-7px;left:50%;width:3px;height:12px;background:#8b3c36;transform:rotate(-12deg);box-shadow:1px 1px 3px #000}
+.scrap:hover,.scrap:focus-visible{opacity:1;filter:url(#rough-soft) brightness(1);transform:translateX(-50%) rotate(-2deg) translateY(-3px)}
+
+/* ---------- entering a version ---------- */
+/* only transform and opacity animate here, so the filtered wood never has to be repainted mid-flight:
+   the room dims under an overlay while a plain copy of the chosen poster flies up to fill the screen */
+.dim{position:fixed;inset:0;z-index:50;pointer-events:none;background:#030404;opacity:0;transition:opacity .6s ease}
+.zoom{position:fixed;left:0;top:0;z-index:55;overflow:hidden;pointer-events:none;transform-origin:0 0;will-change:transform;box-shadow:0 18px 50px #000c;transition:transform .9s cubic-bezier(.66,0,.24,1)}
+.zoom img{width:100%;height:100%;object-fit:cover}
+.veil{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:0;background:var(--veil,#000)}
+.is-leaving .dim{opacity:.9}
+.is-leaving .veil{transition:opacity .32s ease .62s;opacity:1}
+.is-leaving .sign{pointer-events:none}
+.is-leaving .sign__sway{animation-play-state:paused}
+.sign.is-chosen .sign__poster img{visibility:hidden}
+
+/* ---------- compare overlay ---------- */
+.compare{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;padding:16px clamp(16px,3vw,40px) 20px;background:linear-gradient(#050606ee,#050606f6),url('../assets/art/study.webp') center/cover;overflow:auto;animation:fadeIn .35s ease}
+.compare[hidden]{display:none}
+@keyframes fadeIn{from{opacity:0}}
+.compare__bar{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.compare__title{margin:0;font:400 clamp(28px,3vw,40px)/1 var(--font-body)}
+.compare__switch{display:none;gap:6px;margin-left:auto}
+.compare__switch button,.compare__close{border:1px solid #78635b;border-radius:17px 21px 19px 15px;background:#090b0bcc;color:var(--ink);padding:6px 14px;min-height:42px;font-size:17px}
+.compare__switch button[aria-selected=true]{border-color:#e8444d;color:#f57873;background:#241011}
+.compare__close{margin-left:auto;font-size:26px;line-height:1;min-width:44px}
+.compare__switch+.compare__close{margin-left:0}
+.compare__panes{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr);gap:clamp(12px,1.6vw,24px);align-items:start}
+/* the shared scroll rail: a wooden post with a nailed plaque that rides up and down */
+.sync{display:flex;flex-direction:column;align-items:center;user-select:none}
+.sync__label{margin:0;font:400 14px/1.05 var(--font-body);color:var(--muted);text-align:center}
+.sync__track{position:relative;width:16px;border-radius:5px 6px 4px 5px;cursor:ns-resize;touch-action:none;
+  background:linear-gradient(90deg,#00000088,transparent 35%,transparent 65%,#000000aa),var(--wood-v) 0 0/120px 420px;
+  box-shadow:0 0 0 2.5px var(--soot),8px 14px 20px #000a}
+.sync__track:focus-visible{outline:2px solid var(--red-hi);outline-offset:6px}
+.sync__thumb{position:absolute;left:50%;top:0;width:34px;height:58px;margin-left:-17px;border-radius:6px 9px 5px 8px;
+  background:var(--wood) 0 0/420px 420px;box-shadow:0 0 0 2.5px var(--soot),0 0 14px #e3262e55,4px 8px 12px #000c;
+  transform:translateY(var(--thumb-y,0px));transition:box-shadow .2s}
+.sync__thumb::before{content:'';position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ff8a7f,#b0222a 55%,#3a0b0d);box-shadow:0 0 8px #ff3b3b99}
+.sync__track:hover .sync__thumb,.sync.is-dragging .sync__thumb{box-shadow:0 0 0 2.5px var(--soot),0 0 22px #ff3b3b88,4px 8px 12px #000c}
+.pane{min-width:0}
+.pane__head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px;font-size:19px}
+.pane__head p{margin:0}
+.pane__enter{color:#f57873;text-decoration:none;font-size:18px;white-space:nowrap}
+.pane__enter:hover{color:var(--red-hi)}
+.pane__frame{position:relative;padding:12px;border-radius:9px 14px 7px 12px}
+.pane__frame::before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--wood) 0 0/420px 420px;box-shadow:0 0 0 3px var(--soot),inset 0 0 24px #000c,10px 18px 26px #000a;filter:url(#rough)}
+.pane__frame iframe{position:relative;display:block;border:0;width:1280px;height:calc(var(--vh,800) * 1px);transform-origin:0 0;transform:scale(var(--s,.4));background:#000}
+.pane__frame{height:calc(var(--vh,800) * 1px * var(--s,.4) + 24px);overflow:hidden}
+
+/* ---------- phones ---------- */
+@media (max-width:720px){
+  :root{--bw:min(40vw,230px);--gap:5vw;--post:clamp(40px,17svh,190px);--floor:6svh}
+  .world{padding-top:clamp(20px,5svh,48px)}
+  .intro__logo{font-size:32px}
+  .intro__title{font-size:clamp(30px,9vw,42px)}
+  .intro__sub{font-size:17px;max-width:26ch}
+  .sign__board{aspect-ratio:3/4.1}
+  .sign__poster{inset:7% 9% 8%}
+  .sign--a .sign__poster img{object-position:7% 0}
+  .sign--b .sign__poster img{object-position:55% 30%}
+  .sign__label{width:94%;margin-top:-6%}
+  .sign__name{font-size:clamp(17px,5vw,21px)}
+  .sign__ver{font-size:15px}
+  .nail{width:7px}
+  .scrap{font-size:16px;padding:7px 12px 6px}
+  .compare{padding:12px 12px 14px}
+  .compare__title{display:none}
+  .compare__switch{display:flex;margin-left:0}
+  .compare__panes{grid-template-columns:minmax(0,1fr)}
+  .sync{display:none}
+  .compare__panes[data-show=a] #paneB,.compare__panes[data-show=b] #paneA{display:none}
+  .pane__frame{height:calc(100svh - 120px);padding:8px}
+  .pane__frame iframe{width:100%;height:100%;transform:none}
+}
+/* short landscape screens: let the yard scroll rather than squash the signs */
+@media (max-height:520px) and (min-width:721px){
+  :root{--bw:min(31vw,300px);--post:60px}
+  .intro__sub{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important}
+  .sign,.sign__board,.intro,.scrap,.sign__poster{transition:none!important}
+  .embers{display:none}
+  .is-leaving .veil{transition:opacity .25s ease}
+}

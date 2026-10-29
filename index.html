@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Abdullah Alsehli — Choose a Version</title>
+  <meta name="description" content="Two versions of Abdullah Alsehli's portfolio: Version A built from a weak prompt, Version B built from a strong prompt. Pick a signboard to enter.">
+  <meta name="theme-color" content="#080909">
+  <link rel="preload" as="image" href="assets/art/study.webp">
+  <link rel="preload" as="font" href="assets/fonts/gaegu.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="font" href="assets/fonts/patrick-hand.ttf" type="font/ttf" crossorigin>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/gateway.css">
+</head>
+<body>
+  <!-- hand-drawn edge: displaces the outline of wood so it never looks ruler-straight -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rough-soft" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <div class="room" aria-hidden="true">
+    <div class="room__crt"></div>
+    <div class="room__lamp"></div>
+    <div class="room__fog"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <main class="world" id="world">
+    <header class="intro">
+      <p class="intro__logo" aria-hidden="true">AA<span>_</span></p>
+      <h1 class="intro__title">Two prompts. <span class="red">One portfolio.</span></h1>
+      <p class="intro__sub">Same person, built twice. Pick a sign and step inside.</p>
+    </header>
+
+    <div class="yard">
+
+      <a class="sign sign--a" href="version-a/" data-version="a" data-bg="#0a0d12" aria-label="Enter Version A, built from a weak prompt">
+        <span class="sign__sway">
+          <span class="sign__board">
+            <span class="sign__wood" aria-hidden="true"></span>
+            <span class="sign__poster">
+              <img src="assets/previews/version-a.webp" alt="Preview of Version A: a clean dark template with teal accents" width="1200" height="750">
+            </span>
+            <span class="nail nail--tl" aria-hidden="true"></span><span class="nail nail--tr" aria-hidden="true"></span>
+            <span class="nail nail--bl" aria-hidden="true"></span><span class="nail nail--br" aria-hidden="true"></span>
+            <span class="sign__glow" aria-hidden="true"></span>
+          </span>
+          <span class="sign__label">
+            <span class="sign__wood" aria-hidden="true"></span>
+            <span class="sign__ver">Version A</span>
+            <span class="sign__name">Weak Prompt</span>
+          </span>
+          <span class="sign__post" aria-hidden="true"></span>
+        </span>
+        <span class="sign__shadow" aria-hidden="true"></span>
+      </a>
+
+      <a class="sign sign--b" href="version-b/" data-version="b" data-bg="#080909" aria-label="Enter Version B, built from a strong prompt">
+        <span class="sign__sway">
+          <span class="sign__board">
+            <span class="sign__wood" aria-hidden="true"></span>
+            <span class="sign__poster">
+              <img src="assets/previews/version-b.webp" alt="Preview of Version B: the illustrated dark study with the cartoon head" width="1200" height="750">
+            </span>
+            <span class="nail nail--tl" aria-hidden="true"></span><span class="nail nail--tr" aria-hidden="true"></span>
+            <span class="nail nail--bl" aria-hidden="true"></span><span class="nail nail--br" aria-hidden="true"></span>
+            <span class="sign__glow" aria-hidden="true"></span>
+          </span>
+          <span class="sign__label">
+            <span class="sign__wood" aria-hidden="true"></span>
+            <span class="sign__ver">Version B</span>
+            <span class="sign__name">Strong Prompt</span>
+          </span>
+          <span class="sign__post" aria-hidden="true"></span>
+        </span>
+        <span class="sign__shadow" aria-hidden="true"></span>
+      </a>
+
+      <button class="scrap" id="compareOpen" type="button" aria-haspopup="dialog" aria-controls="compare">
+        compare both <span aria-hidden="true">&#8644;</span>
+      </button>
+    </div>
+  </main>
+
+  <div class="dim" aria-hidden="true"></div>
+  <div class="veil" id="veil" aria-hidden="true"></div>
+
+  <div class="compare" id="compare" role="dialog" aria-modal="true" aria-labelledby="compareTitle" hidden>
+    <div class="compare__bar">
+      <h2 class="compare__title" id="compareTitle">Side by side</h2>
+      <div class="compare__switch" role="tablist" aria-label="Version shown">
+        <button type="button" role="tab" id="tabA" aria-selected="true" aria-controls="paneA" data-show="a">A · Weak</button>
+        <button type="button" role="tab" id="tabB" aria-selected="false" aria-controls="paneB" data-show="b">B · Strong</button>
+      </div>
+      <button class="compare__close" id="compareClose" type="button" aria-label="Close comparison">&times;</button>
+    </div>
+    <div class="compare__panes" data-show="a">
+      <section class="pane" id="paneA" role="tabpanel" aria-labelledby="tabA">
+        <div class="pane__head">
+          <p><span class="red">Version A</span> — Weak Prompt</p>
+          <a class="pane__enter" href="version-a/" data-version="a" data-bg="#0a0d12">enter &rarr;</a>
+        </div>
+        <div class="pane__frame"><iframe title="Version A, live" data-src="version-a/" loading="lazy"></iframe></div>
+      </section>
+      <!-- one wooden rail between the two boards scrolls both versions together -->
+      <div class="sync" id="sync">
+        <p class="sync__label" aria-hidden="true">scroll<br>both</p>
+        <div class="sync__track" id="syncTrack" role="slider" tabindex="0" aria-label="Scroll both versions together" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Top">
+          <span class="sync__thumb" id="syncThumb" aria-hidden="true"></span>
+        </div>
+      </div>
+      <section class="pane" id="paneB" role="tabpanel" aria-labelledby="tabB">
+        <div class="pane__head">
+          <p><span class="red">Version B</span> — Strong Prompt</p>
+          <a class="pane__enter" href="version-b/" data-version="b" data-bg="#080909">enter &rarr;</a>
+        </div>
+        <div class="pane__frame"><iframe title="Version B, live" data-src="version-b/" loading="lazy"></iframe></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/gateway.js"></script>
+</body>
+</html>

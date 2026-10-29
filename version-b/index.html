@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abdullah Alsehli — AI Engineer</title>
+  <meta name="description" content="Abdullah Alsehli — final-year Artificial Intelligence student at Umm Al-Qura University building AI agents, machine learning, deep learning and computer vision systems.">
+  <meta name="theme-color" content="#080909">
+  <link rel="preload" as="image" href="assets/art/character-reference.webp">
+  <link rel="preload" as="font" href="assets/fonts/gaegu.ttf" type="font/ttf" crossorigin>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tree.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4M9 18c-4.51 2-5-2-7-2"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+      <symbol id="i-agent" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><circle cx="12" cy="12" r="2.5"/><path d="M12 7v2.5M10.2 13.6 6.6 16.8M13.8 13.6l3.6 3.2"/></symbol>
+      <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-6 .13 4 4 0 0 0-2.52 5.77 4 4 0 0 0 .55 6.59A4 4 0 1 0 12 18ZM12 5a3 3 0 1 1 6 .13 4 4 0 0 1 2.52 5.77 4 4 0 0 1-.55 6.59A4 4 0 1 1 12 18ZM12 5v13"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/><circle cx="9" cy="7" r="4"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 16v-3M12 16V8M17 16v-6"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+      <symbol id="i-case" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c3 3 9 3 12 0v-5"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4ZM22 2 11 13"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 7v4"/></symbol>
+      <symbol id="i-gpa" viewBox="0 0 24 24"><path d="M4 19h16M6 15l4-6 4 4 4-7"/></symbol>
+      <symbol id="i-lang" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- Atmosphere: dark room, pinned papers, lamp, monitor -->
+  <div class="room" aria-hidden="true">
+    <div class="room__glow room__glow--lamp"></div>
+    <div class="room__glow room__glow--crt"></div>
+  </div>
+
+  <!-- User-selected assembled portrait; independent, transparent illustrated tree layers. -->
+  <canvas id="treeCanvas" aria-hidden="true"></canvas>
+  <div class="tree-face" id="treeFace" aria-hidden="true">
+    <img src="assets/art/character-reference.webp" width="1000" height="1000" alt="" fetchpriority="high">
+    <!-- each eye: fixed patch (pupil replaced by eye-white) + movable pupil, clipped to the eye opening -->
+    <span class="tree-eye tree-eye--left"><img src="assets/art/eyes/left-patch.png" alt=""><img class="tree-eye__pupil" src="assets/art/eyes/left-pupil.png" alt=""><img src="assets/art/eyes/left-lid.png" alt=""></span>
+    <span class="tree-eye tree-eye--right"><img src="assets/art/eyes/right-patch.png" alt=""><img class="tree-eye__pupil" src="assets/art/eyes/right-pupil.png" alt=""><img src="assets/art/eyes/right-lid.png" alt=""></span>
+  </div>
+
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#home" aria-label="Abdullah Alsehli — home">AA<span>_</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#volunteering">Volunteering</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--red btn--sm nav__cta" href="#contact">Let's Connect <svg class="i"><use href="#i-arrow"/></svg></a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <svg class="i"><use href="#i-menu"/></svg>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <p class="hero__hi">Hi, I'm</p>
+        <h1 id="hero-title" class="hero__name"><span>Abdullah</span> <span class="red">Alsehli</span></h1>
+        <p class="hero__role">AI Engineering Student</p>
+        <p class="hero__lead">Building intelligent systems, exploring ideas, and turning curiosity into real-world solutions.</p>
+        <div class="hero__cta">
+          <a class="btn btn--red" href="#projects">View My Work <svg class="i"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="assets/Abdullah_Alsehli_CV.pdf" download="Abdullah_Alsehli_CV.pdf"><svg class="i"><use href="#i-download"/></svg> Download CV</a>
+        </div>
+        <ul class="hero__chips" aria-label="Focus areas">
+          <li>AI Agents</li><li>Machine Learning</li><li>Deep Learning</li><li>Computer Vision</li>
+        </ul>
+        <a class="scroll-cue" href="#about"><span>Scroll down<br>to explore</span><svg class="i i--mouse"><use href="#i-mouse"/></svg></a>
+      </div>
+
+      <!-- Original notes around the assembled portrait -->
+      <div class="note note--tag" data-tag="320,70"  style="--x:1;--y:17%;--r:4deg"><span>AI Agents</span><svg class="i"><use href="#i-agent"/></svg></div>
+      <div class="note note--tag" data-tag="360,150" style="--x:1.3;--y:40%;--r:-3deg"><span>Machine<br>Learning</span><svg class="i"><use href="#i-chart"/></svg></div>
+      <div class="note note--tag" data-tag="40,150"  style="--x:-1;--y:19%;--r:-5deg"><span>Ideas</span><svg class="i"><use href="#i-bulb"/></svg></div>
+      <div class="note note--tag" data-tag="370,200" style="--x:1.05;--y:63%;--r:3deg"><span>Deep<br>Learning</span><svg class="i"><use href="#i-layers"/></svg></div>
+      <div class="note note--tag" data-tag="30,200"  style="--x:-1.15;--y:72%;--r:4deg"><span>Computer<br>Vision</span><svg class="i"><use href="#i-eye"/></svg></div>
+      <div class="note note--tag" data-tag="300,212" style="--x:1.45;--y:82%;--r:-4deg"><span>Real-world<br>Solutions</span><svg class="i"><use href="#i-globe"/></svg></div>
+    </section>
+
+
+
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- ABOUT -->
+    <section class="sec about" id="about" aria-labelledby="about-title">
+      <div class="grid">
+        <div class="col-l about__text reveal" data-neuron>
+          <p class="sec__num">01</p>
+          <h2 id="about-title">About Me</h2>
+          <p>I'm a final-year Artificial Intelligence student at Umm Al-Qura University, passionate about AI Agents, Machine Learning, Deep Learning and Computer Vision, and about building practical solutions for real-world problems.</p>
+          <p>I'm currently a cooperative training trainee at SDAIA, at the UNESCO International Center for AI Research and Ethics (ICAIRE), where I build AI-powered features and research platforms.</p>
+          <a class="btn btn--red btn--sm" href="#experience">More About Me <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="head-slot" id="headSlot" aria-hidden="true"></div>
+        <aside class="col-r card profile reveal" data-neuron aria-label="Profile summary">
+          <span class="clip" aria-hidden="true"></span>
+          <div class="profile__top">
+            <div class="profile__avatar"><img src="assets/art/character-reference.webp" alt="Illustrated portrait of Abdullah" width="1000" height="1000" loading="lazy"></div>
+            <div>
+              <h3>Abdullah Alsehli</h3>
+              <p class="red">AI Engineering Student</p>
+            </div>
+          </div>
+          <ul class="profile__list">
+            <li><svg class="i"><use href="#i-cap"/></svg>Umm Al-Qura University — B.Sc. Artificial Intelligence</li>
+            <li><svg class="i"><use href="#i-case"/></svg>Final year · graduating Jul 2027</li>
+            <li><svg class="i"><use href="#i-gpa"/></svg>GPA: 3.86 / 4.0</li>
+            <li><svg class="i"><use href="#i-pin"/></svg>Riyadh (training) · Makkah (university)</li>
+            <li><svg class="i"><use href="#i-lang"/></svg>Arabic (native) · English (excellent)</li>
+          </ul>
+        </aside>
+      </div>
+      <div class="note note--float note--deco" style="--r:-4deg;left:30%;bottom:-30px"><span>Problem<br>Solving</span></div>
+    </section>
+
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- EXPERIENCE & LEADERSHIP -->
+    <section class="sec" id="experience" aria-labelledby="exp-title">
+      <div class="grid">
+        <header class="col-l sec__head reveal">
+          <p class="sec__num">02</p>
+          <h2 id="exp-title">Experience &amp; Leadership</h2>
+          <p class="sec__sub">Where I build, guide and share.</p>
+        </header>
+        <div class="col-r"></div>
+
+        <article class="col-l card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-case"/></svg></span>
+          <div>
+            <h3>SDAIA / ICAIRE</h3>
+            <p class="exp__role">AI Cooperative Trainee</p>
+            <p class="exp__date">Jun 2026 – Present · Riyadh, on-site</p>
+            <p class="exp__org">Saudi Data &amp; AI Authority — UNESCO International Center for AI Research and Ethics</p>
+            <ul>
+              <li>Developed 3 AI-powered features to streamline workflows and improve the user experience.</li>
+              <li>Designed 3 interactive dashboard components and worked with a 5-member team to test and deliver 4 data-driven features.</li>
+              <li>Built the Ethical-AI Atlas platform: Python research pipelines that source papers and AI-ethics research centers and classify them against the ten UNESCO principles, a FastAPI service and a React frontend.</li>
+              <li>Built an AI-ethics news pipeline that collects articles from official AI-governance sources, classifies them by UNESCO principle and stages them for human review.</li>
+              <li>Built the Ethical AI Journal prototype.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="col-r card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-users"/></svg></span>
+          <div>
+            <h3>UQU Robotics &amp; AI Club</h3>
+            <p class="exp__role">Advisor — Competitions &amp; Sports Activities Committee</p>
+            <p class="exp__date">Umm Al-Qura University · Makkah</p>
+          </div>
+        </article>
+        <article class="col-l card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-bulb"/></svg></span>
+          <div>
+            <h3>AI Pioneers | روّاد</h3>
+            <p class="exp__role">Educational Content Department Member · Volunteer</p>
+            <p class="exp__date">Oct 2026 – Present</p>
+            <p>Research, preparation, review and organization of educational AI content, supporting materials and source documentation, and sharing that knowledge with the community.</p>
+            <a class="exp__cert" href="assets/certs/ai-pioneers-membership.png" target="_blank" rel="noopener"><img class="cert__thumb" src="assets/certs/thumbs/ai-pioneers-membership.webp" alt="" width="64" height="48" loading="lazy"><span>Certificate of membership</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="sec" id="projects" aria-labelledby="projects-title">
+      <div class="grid">
+        <header class="col-l sec__head reveal">
+          <p class="sec__num">03</p>
+          <h2 id="projects-title">Featured Projects</h2>
+          <p class="sec__sub">A selection of projects I've worked on.</p>
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button class="chip is-on" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip" data-filter="agents" aria-pressed="false">AI Agents</button>
+            <button class="chip" data-filter="cv" aria-pressed="false">Computer Vision</button>
+            <button class="chip" data-filter="dl" aria-pressed="false">Deep Learning</button>
+            <button class="chip" data-filter="ml" aria-pressed="false">Machine Learning</button>
+            <button class="chip" data-filter="web" aria-pressed="false">Web</button>
+          </div>
+        </header>
+        <div class="col-r"></div>
+
+        <!-- project cards: port icon, text, thumbnail -->
+        <article class="col-l card project reveal" data-neuron data-cat="agents web">
+          <span class="port port--sq"><svg class="i"><use href="#i-folder"/></svg></span>
+          <div class="project__body">
+            <h3>Wasl</h3>
+            <p>AI-powered career platform: turns real achievements into LinkedIn posts, tailored CVs and a skill-gap roadmap, with claim-checking so outputs never invent facts.</p>
+            <ul class="tags"><li>Next.js</li><li>FastAPI</li><li>LangGraph</li></ul>
+          </div>
+          <figure class="thumb"><img src="assets/projects/wasl.jpg" alt="Wasl system architecture diagram" loading="lazy" width="640" height="384"></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul>
+              <li>Three LangGraph agents: content generation, achievement discovery &amp; verification, CV optimization &amp; career analysis.</li>
+              <li>AI model router across Groq, Gemini and OpenRouter with retries, fallback and JSON-schema validation.</li>
+              <li>Monitoring &amp; evaluation dashboard; team project in Tuwaiq Academy's AI Product Development program.</li>
+            </ul>
+            <p class="muted"><svg class="i"><use href="#i-lock"/></svg> Team project — no public link yet.</p>
+          </div>
+        </article>
+        <article class="col-r card project reveal" data-neuron data-cat="web">
+          <span class="port port--sq"><svg class="i"><use href="#i-globe"/></svg></span>
+          <div class="project__body">
+            <h3>Ethical-AI Atlas</h3>
+            <p>A unified evidence base mapping global AI-ethics research centers and literature against the ten UNESCO Recommendation (2021) principles.</p>
+            <ul class="tags"><li>Python</li><li>FastAPI</li><li>React</li></ul>
+          </div>
+          <figure class="thumb thumb--sketch" aria-hidden="true"><svg viewBox="0 0 160 100"><g fill="none" stroke="#e3262f" stroke-width="2" stroke-linecap="round"><circle cx="80" cy="50" r="34"/><path d="M46 50h68M80 16c-14 18-14 50 0 68M80 16c14 18 14 50 0 68"/><circle cx="62" cy="36" r="3" fill="#e3262f"/><circle cx="98" cy="58" r="3" fill="#e3262f"/><circle cx="74" cy="66" r="3" fill="#e3262f"/></g></svg></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul>
+              <li>Built during my SDAIA / ICAIRE cooperative training.</li>
+              <li>React frontend, FastAPI service, and Python pipelines that source and classify papers and research centers.</li>
+            </ul>
+            <p class="muted"><svg class="i"><use href="#i-lock"/></svg> Internal project — repository is private.</p>
+          </div>
+        </article>
+        <article class="col-l card project reveal" data-neuron data-cat="agents">
+          <span class="port port--sq"><svg class="i"><use href="#i-agent"/></svg></span>
+          <div class="project__body">
+            <h3>AI Research Paper Assistant</h3>
+            <p>Upload one paper: answers questions with page-cited RAG, then discovers, ranks and explains similar papers from Semantic Scholar and arXiv.</p>
+            <ul class="tags"><li>LangGraph</li><li>LangChain agents</li><li>RAG</li></ul>
+          </div>
+          <figure class="thumb thumb--sketch" aria-hidden="true"><svg viewBox="0 0 160 100"><g fill="none" stroke="#e3262f" stroke-width="2" stroke-linecap="round"><rect x="16" y="14" width="40" height="54" rx="3"/><path d="M24 26h24M24 34h24M24 42h16"/><circle cx="104" cy="30" r="9"/><circle cx="132" cy="62" r="9"/><circle cx="92" cy="74" r="9"/><path d="M56 40c14 0 20-10 39-10M111 36l15 18M123 66l-22 6M60 50c10 10 18 20 24 22"/></g></svg></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul>
+              <li>Exactly two LangChain agents orchestrated by a LangGraph StateGraph with conditional routing and parallel fan-out.</li>
+              <li>Similarity scores computed in Python (embeddings + cosine similarity); the LLM only explains them.</li>
+              <li>Final project of SDAIA Academy's Advanced Agentic AI Systems Engineering course, built with Hasan Alhussain.</li>
+            </ul>
+            <div class="links">
+              <a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/ai-research-paper-assistant" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a>
+              <a class="btn btn--ghost btn--sm" href="https://colab.research.google.com/github/abdullahf-77/ai-research-paper-assistant/blob/main/research_paper_assistant.ipynb" target="_blank" rel="noopener"><svg class="i"><use href="#i-external"/></svg> Open in Colab</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-r card project reveal" data-neuron data-cat="cv">
+          <span class="port port--sq"><svg class="i"><use href="#i-eye"/></svg></span>
+          <div class="project__body">
+            <h3>Nexus AIoT</h3>
+            <p>Graduation project: a touchless smart environment that recognizes 10 hand gestures to control 7 smart devices in real time.</p>
+            <ul class="tags"><li>OpenCV</li><li>MediaPipe</li><li>Python</li></ul>
+          </div>
+          <figure class="thumb thumb--sketch" aria-hidden="true"><svg viewBox="0 0 160 100"><g fill="none" stroke="#e3262f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M62 86V52l-8-16a5 5 0 0 1 9-4l7 14V22a5 5 0 0 1 10 0v24-30a5 5 0 0 1 10 0v30-22a5 5 0 0 1 10 0v26-16a5 5 0 0 1 10 0v26c0 18-10 26-24 26H62"/><circle cx="70" cy="22" r="2" fill="#e3262f"/><circle cx="85" cy="16" r="2" fill="#e3262f"/><circle cx="100" cy="22" r="2" fill="#e3262f"/><path d="M128 20h18v14h-18zM14 60h20v14H14z"/></g></svg></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul>
+              <li>Gesture-password unlock, several smart modes, and face-presence authorization.</li>
+              <li>Hand landmarks from MediaPipe drive the gesture classifier; OpenCV handles the camera pipeline.</li>
+              <li>Presented at the Digital Rainbow event.</li>
+            </ul>
+            <div class="links"><a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/nexus-aiot" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a></div>
+          </div>
+        </article>
+        <article class="col-l card project reveal" data-neuron data-cat="cv dl">
+          <span class="port port--sq"><svg class="i"><use href="#i-eye"/></svg></span>
+          <div class="project__body">
+            <h3>PPE Safety Monitoring</h3>
+            <p>PPE-compliance and restricted-zone monitoring for construction sites: detection, worker tracking, temporal PPE state and pose-assisted hazard zones.</p>
+            <ul class="tags"><li>Ultralytics YOLO</li><li>Tracking</li><li>Pose</li></ul>
+          </div>
+          <figure class="thumb"><img src="assets/projects/ppe.jpg" alt="Workers on a construction site with PPE detection boxes" loading="lazy" width="640" height="1137" style="object-position:50% 72%"></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul>
+              <li>Capstone for SDAIA Academy's Computer Vision for Developers program.</li>
+              <li>Roboflow Construction Site Safety dataset (717 images) with a leakage-aware, group-aware split.</li>
+            </ul>
+            <div class="links">
+              <a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/ppe-safety-monitoring" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a>
+              <a class="btn btn--ghost btn--sm" href="https://colab.research.google.com/drive/1DOkHXGNSg5vSnvLyXGEfOYrfepiH0MB2?usp=sharing" target="_blank" rel="noopener"><svg class="i"><use href="#i-external"/></svg> Colab notebook</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-r card project reveal" data-neuron data-cat="cv dl web">
+          <span class="port port--sq"><svg class="i"><use href="#i-eye"/></svg></span>
+          <div class="project__body">
+            <h3>CookFinder</h3>
+            <p>Detects ingredients from a photo with YOLO11n and recommends recipes: 72% mAP@0.5 with under 50 ms inference.</p>
+            <ul class="tags"><li>YOLO11n</li><li>FastAPI</li><li>Python</li></ul>
+          </div>
+          <figure class="thumb"><img src="assets/projects/cookfinder.jpg" alt="CookFinder home screen" loading="lazy" width="640" height="400"></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul>
+              <li>FastAPI backend serving the detector, plus a recipe-matching engine with match scores.</li>
+              <li>Featured project in the AI Showcase of the Kanz AI Hackathon (Jul 2026).</li>
+            </ul>
+            <div class="links"><a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/cook-finder" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a></div>
+          </div>
+        </article>
+
+        <div class="projects__toggle reveal">
+          <button class="btn btn--ghost" id="moreProjects" type="button" aria-expanded="false">View More Projects <svg class="i"><use href="#i-plus"/></svg></button>
+        </div>
+
+        <article class="col-l card project reveal is-extra" data-neuron data-cat="dl">
+          <span class="port port--sq"><svg class="i"><use href="#i-brain"/></svg></span>
+          <div class="project__body">
+            <h3>Pneumonia Detection</h3>
+            <p>Transfer-learning classifier on chest X-rays with MobileNetV2: 81.57% test accuracy on 624 images.</p>
+            <ul class="tags"><li>TensorFlow</li><li>Keras</li><li>MobileNetV2</li></ul>
+          </div>
+          <figure class="thumb"><img src="assets/projects/pneumonia.jpg" alt="Training and validation accuracy curve" loading="lazy" width="640" height="505"></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <div class="links"><a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/pneumonia-xray-classifier" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a></div>
+          </div>
+        </article>
+        <article class="col-r card project reveal is-extra" data-neuron data-cat="web">
+          <span class="port port--sq"><svg class="i"><use href="#i-layers"/></svg></span>
+          <div class="project__body">
+            <h3>Ethical AI Journal</h3>
+            <p>A prototype journal website for ICAIRE, deployed on GitHub Pages.</p>
+            <ul class="tags"><li>React</li><li>Vite</li><li>Tailwind</li></ul>
+          </div>
+          <figure class="thumb thumb--sketch" aria-hidden="true"><svg viewBox="0 0 160 100"><g fill="none" stroke="#e3262f" stroke-width="2" stroke-linecap="round"><path d="M30 18h46c6 0 6 4 6 8v62c0-4-2-8-8-8H30zM130 18H88c-6 0-6 4-6 8v62c0-4 2-8 8-8h40z"/><path d="M40 32h28M40 42h28M40 52h18M94 32h26M94 42h26M94 52h16"/></g></svg></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <div class="links">
+              <a class="btn btn--ghost btn--sm" href="https://abdullahf-77.github.io/ethical-ai-journal/" target="_blank" rel="noopener"><svg class="i"><use href="#i-external"/></svg> Live site</a>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/ethical-ai-journal" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-l card project reveal is-extra" data-neuron data-cat="dl">
+          <span class="port port--sq"><svg class="i"><use href="#i-chart"/></svg></span>
+          <div class="project__body">
+            <h3>Asthma Prediction</h3>
+            <p>A neural-network model with a preprocessing pipeline that predicts asthma diagnosis from patient data.</p>
+            <ul class="tags"><li>Neural Networks</li><li>Preprocessing</li></ul>
+          </div>
+          <figure class="thumb thumb--sketch" aria-hidden="true"><svg viewBox="0 0 160 100"><g fill="none" stroke="#e3262f" stroke-width="2" stroke-linecap="round"><circle cx="40" cy="30" r="6"/><circle cx="40" cy="70" r="6"/><circle cx="80" cy="20" r="6"/><circle cx="80" cy="50" r="6"/><circle cx="80" cy="80" r="6"/><circle cx="120" cy="50" r="6"/><path d="M46 30l28-10M46 30l28 20M46 30l28 50M46 70l28-50M46 70l28-20M46 70l28 10M86 20l28 30M86 50h28M86 80l28-30"/></g></svg></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden><p class="muted">No public repository.</p></div>
+        </article>
+        <article class="col-r card project reveal is-extra" data-neuron data-cat="ml">
+          <span class="port port--sq"><svg class="i"><use href="#i-chart"/></svg></span>
+          <div class="project__body">
+            <h3>Air Passengers Forecasting</h3>
+            <p>Time-series capstone at SDAIA Academy: 12-month forecasts of the classic monthly AirPassengers series with decomposition, benchmarks and leakage-safe validation.</p>
+            <ul class="tags"><li>AutoGluon</li><li>AutoARIMA</li><li>Time Series</li></ul>
+          </div>
+          <figure class="thumb thumb--sketch" aria-hidden="true"><svg viewBox="0 0 160 100"><g fill="none" stroke="#e3262f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 86h132M14 86V14"/><path d="M18 74l10-6 8 4 10-10 8 5 10-12 8 6 10-14 8 7 10-16"/><path d="M110 34l10-16 8 8 10-18" stroke-dasharray="4 4"/></g></svg></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul>
+              <li>STL decomposition, naive and seasonal-naive benchmarks, and an AutoGluon model zoo (Naive, SeasonalNaive, AutoETS, AutoARIMA, Theta).</li>
+              <li>Eight rolling origins: AutoARIMA reached a MASE of 0.647 vs 1.313 for the seasonal-naive benchmark.</li>
+            </ul>
+            <div class="links"><a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/international-airpassengers-project" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a></div>
+          </div>
+        </article>
+        <article class="col-l card project reveal is-extra" data-neuron data-cat="ml">
+          <span class="port port--sq"><svg class="i"><use href="#i-chart"/></svg></span>
+          <div class="project__body">
+            <h3>Heart Disease Prediction</h3>
+            <p>Classifies the presence of heart disease from patient health data, comparing Logistic Regression with a Random Forest.</p>
+            <ul class="tags"><li>Scikit-learn</li><li>Pandas</li><li>Random Forest</li></ul>
+          </div>
+          <figure class="thumb thumb--sketch" aria-hidden="true"><svg viewBox="0 0 160 100"><g fill="none" stroke="#e3262f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M80 82S38 58 38 36a18 18 0 0 1 42-10 18 18 0 0 1 42 10c0 22-42 46-42 46z"/><path d="M48 50h18l6-12 8 22 6-10h26"/></g></svg></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul><li>EDA and correlation analysis, then evaluation with accuracy, confusion matrix, precision, recall and F1.</li></ul>
+            <div class="links"><a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/heart-disease-prediction" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a></div>
+          </div>
+        </article>
+        <article class="col-r card project reveal is-extra" data-neuron data-cat="ml">
+          <span class="port port--sq"><svg class="i"><use href="#i-chart"/></svg></span>
+          <div class="project__body">
+            <h3>Boston Housing Prices</h3>
+            <p>My first machine-learning project: exploratory analysis and a Linear Regression model that predicts house prices on the Boston Housing dataset.</p>
+            <ul class="tags"><li>Scikit-learn</li><li>Pandas</li><li>Seaborn</li></ul>
+          </div>
+          <figure class="thumb thumb--sketch" aria-hidden="true"><svg viewBox="0 0 160 100"><g fill="none" stroke="#e3262f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 80V46l22-18 22 18v34zM44 80V62h16v18"/><path d="M92 80l14-14 10 6 22-26"/><circle cx="96" cy="58" r="2" fill="#e3262f"/><circle cx="112" cy="64" r="2" fill="#e3262f"/><circle cx="126" cy="50" r="2" fill="#e3262f"/></g></svg></figure>
+          <button class="more" aria-expanded="false">Details <svg class="i"><use href="#i-plus"/></svg></button>
+          <div class="project__more" hidden>
+            <ul><li>506 records and 14 variables; histograms, heatmap and pair plots before modelling.</li></ul>
+            <div class="links"><a class="btn btn--ghost btn--sm" href="https://github.com/abdullahf-77/boston-housing-price-prediction" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> Code</a></div>
+          </div>
+        </article>
+
+        <div class="col-r projects__all reveal">
+          <a class="btn btn--red" href="https://github.com/abdullahf-77?tab=repositories" target="_blank" rel="noopener">View All on GitHub <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="sec" id="skills" aria-labelledby="skills-title">
+      <div class="grid">
+        <header class="col-l sec__head reveal">
+          <p class="sec__num">04</p>
+          <h2 id="skills-title">Technical Skills</h2>
+          <p class="sec__sub">A combination of technical skills and problem-solving abilities.</p>
+        </header>
+        <div class="col-r note note--float note--deco" style="--r:4deg;justify-self:start"><span>Continuous<br>Learning</span></div>
+
+        <article class="col-l card skill reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-agent"/></svg></span>
+          <h3>AI Agents &amp; LLMs</h3>
+          <ul class="list"><li>AI Agents &amp; RAG</li><li>LangGraph · LangChain</li><li>LLM APIs · Groq · Gemini · OpenRouter</li></ul>
+        </article>
+        <article class="col-r card skill reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-brain"/></svg></span>
+          <h3>Machine Learning &amp; Deep Learning</h3>
+          <ul class="list"><li>PyTorch</li><li>TensorFlow · Keras</li><li>Scikit-learn</li><li>Time Series Forecasting · AutoGluon</li><li>Model Development &amp; Evaluation</li></ul>
+        </article>
+        <article class="col-l card skill reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-eye"/></svg></span>
+          <h3>Computer Vision</h3>
+          <ul class="list"><li>OpenCV</li><li>MediaPipe</li><li>Ultralytics YOLO</li></ul>
+        </article>
+        <article class="col-r card skill reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-code"/></svg></span>
+          <h3>Programming &amp; Development</h3>
+          <ul class="list"><li>Python · Java · SQL · JavaScript</li><li>FastAPI</li><li>React · Next.js</li><li>Web Development</li><li>Git &amp; GitHub</li></ul>
+        </article>
+        <article class="col-l card skill reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-cloud"/></svg></span>
+          <h3>Tools &amp; Data</h3>
+          <ul class="list"><li>Pandas · NumPy</li><li>Data Cleaning &amp; Preprocessing</li><li>Exploratory Data Analysis</li><li>Alibaba Cloud</li><li>VS Code · SQL Workbench · Excel</li></ul>
+        </article>
+        <article class="col-r card skill reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-users"/></svg></span>
+          <h3>Soft Skills</h3>
+          <ul class="list"><li>Problem Solving</li><li>Teamwork</li><li>Leadership</li><li>Communication</li></ul>
+        </article>
+      </div>
+    </section>
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- EDUCATION -->
+    <section class="sec" id="education" aria-labelledby="edu-title">
+      <div class="grid">
+        <header class="col-l sec__head reveal">
+          <p class="sec__num">05</p>
+          <h2 id="edu-title">Education</h2>
+          <p class="sec__sub">Where I learn.</p>
+        </header>
+        <article class="col-r card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-cap"/></svg></span>
+          <div>
+            <h3>Umm Al-Qura University</h3>
+            <p class="exp__role">Bachelor's Degree in Artificial Intelligence</p>
+            <p class="exp__date">2023 – 2027 (Expected)</p>
+            <ul>
+              <li>GPA: 3.86 / 4.0</li>
+              <li>Makkah, Saudi Arabia</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- TRAINING & CERTIFICATIONS -->
+    <section class="sec" id="certifications" aria-labelledby="cert-title">
+      <div class="grid">
+        <header class="col-l sec__head reveal">
+          <p class="sec__num">06</p>
+          <h2 id="cert-title">Training &amp; Certifications</h2>
+          <p class="sec__sub">Pinned to the wall, one by one.</p>
+        </header>
+        <div class="col-r"></div>
+
+        <div class="col-l card certs reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-award"/></svg></span>
+          <h3>AI Specializations</h3>
+          <ul class="cert-list">
+            <li class="cert"><a class="cert__img" href="assets/certs/sdaia-agentic-ai.pdf" target="_blank" rel="noopener" aria-label="View certificate: Advanced Agentic AI Systems Engineering"><img class="cert__thumb" src="assets/certs/thumbs/sdaia-agentic-ai.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Advanced Agentic AI Systems Engineering</b><span class="cert__meta">SDAIA Academy · 4–8 Oct 2026</span><span class=cert__links><a href="assets/certs/sdaia-agentic-ai.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/sdaia-time-series.pdf" target="_blank" rel="noopener" aria-label="View certificate: Time Series Analysis &amp; Forecasting"><img class="cert__thumb" src="assets/certs/thumbs/sdaia-time-series.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Time Series Analysis &amp; Forecasting</b><span class="cert__meta">SDAIA Academy · 12–14 Oct 2026</span><span class=cert__links><a href="assets/certs/sdaia-time-series.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/sdaia-computer-vision.pdf" target="_blank" rel="noopener" aria-label="View certificate: Computer Vision for Developers"><img class="cert__thumb" src="assets/certs/thumbs/sdaia-computer-vision.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Computer Vision for Developers</b><span class="cert__meta">SDAIA Academy · 9–13 Aug 2026</span><span class=cert__links><a href="assets/certs/sdaia-computer-vision.pdf" target="_blank" rel="noopener">View</a> <a href="https://athkax.sdaia.gov.sa/certificate-verification?type=Event&amp;id=302&amp;certificate=23652&amp;learner=abdullahalsehli7%40gmail.com" target="_blank" rel="noopener">Verify</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/sdaia-ai-concepts.pdf" target="_blank" rel="noopener" aria-label="View certificate: AI Concepts &amp; Advanced Applications"><img class="cert__thumb" src="assets/certs/thumbs/sdaia-ai-concepts.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>AI Concepts &amp; Advanced Applications</b><span class="cert__meta">SDAIA · One Million Saudis in AI (SAMAI) · 19 Sep 2025</span><span class=cert__links><a href="assets/certs/sdaia-ai-concepts.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/sdaia-fundamentals-ai.pdf" target="_blank" rel="noopener" aria-label="View certificate: Fundamentals of Artificial Intelligence"><img class="cert__thumb" src="assets/certs/thumbs/sdaia-fundamentals-ai.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Fundamentals of Artificial Intelligence</b><span class="cert__meta">SDAIA · One Million Saudis in AI (SAMAI) · 19 Sep 2025</span><span class=cert__links><a href="assets/certs/sdaia-fundamentals-ai.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/mcit-ai-ethics.pdf" target="_blank" rel="noopener" aria-label="View certificate: AI Ethics"><img class="cert__thumb" src="assets/certs/thumbs/mcit-ai-ethics.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>AI Ethics</b><span class="cert__meta">Ministry of Communications and IT · National eLearning Center · 12 Sep 2026</span><span class=cert__links><a href="assets/certs/mcit-ai-ethics.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+          </ul>
+        </div>
+        <div class="col-r card certs reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-award"/></svg></span>
+          <h3>Professional Training &amp; Bootcamps</h3>
+          <ul class="cert-list">
+            <li class="cert"><span class="cert__img cert__img--none" aria-hidden="true"></span><div><b>Samsung Innovation Campus — Artificial Intelligence</b> <span class="status-tag status-tag--live">In progress</span><span class="cert__meta">With Misk Skills · Oct – Nov 2026</span></div></li>
+            <li class="cert"><span class="cert__img cert__img--none" aria-hidden="true"></span><div><b>AI Product Development &amp; Monitoring</b><span class="cert__meta">Tuwaiq Academy · 2026 · team project: Wasl</span></div></li>
+            <li class="cert"><span class="cert__img cert__img--none" aria-hidden="true"></span><div><b>Cloud Computing &amp; AI</b> <span class="status-tag">Completed</span><span class="cert__meta">Tuwaiq Academy × Alibaba Cloud Academy · Sep 2026 · led to the Cloud Computing Engineer certification</span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/ai-era-neon-bootcamp.pdf" target="_blank" rel="noopener" aria-label="View certificate: AI ERA NEON Bootcamp — Artificial Intelligence path"><img class="cert__thumb" src="assets/certs/thumbs/ai-era-neon-bootcamp.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>AI ERA NEON Bootcamp — Artificial Intelligence path</b><span class="cert__meta">AI ERA × Neon · May 2026 · certificate of participation</span><span class=cert__links><a href="assets/certs/ai-era-neon-bootcamp.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+          </ul>
+        </div>
+        <div class="col-l card certs reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-award"/></svg></span>
+          <h3>Cloud &amp; AI Platforms</h3>
+          <ul class="cert-list">
+            <li class="cert"><a class="cert__img" href="assets/certs/alibaba-cloud-computing-engineer.png" target="_blank" rel="noopener" aria-label="View certificate: Cloud Computing Engineer"><img class="cert__thumb" src="assets/certs/thumbs/alibaba-cloud-computing-engineer.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Cloud Computing Engineer</b><span class="cert__meta">Alibaba Cloud Certification · Tuwaiq Academy × Alibaba Cloud Academy · valid until 10 Sep 2028</span><span class=cert__links><a href="assets/certs/alibaba-cloud-computing-engineer.png" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/mcit-aws-ai-practitioner.pdf" target="_blank" rel="noopener" aria-label="View certificate: AWS Certified AI Practitioner — Learning Path"><img class="cert__thumb" src="assets/certs/thumbs/mcit-aws-ai-practitioner.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>AWS Certified AI Practitioner — Learning Path</b><span class="cert__meta">Saudi Digital Academy (MCIT) with AWS · Aug 2026</span><span class=cert__links><a href="assets/certs/mcit-aws-ai-practitioner.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><span class="cert__img cert__img--none" aria-hidden="true"></span><div><b>OCI AI Foundations Associate</b><span class="cert__meta">Oracle</span></div></li>
+          </ul>
+        </div>
+        <div class="col-r card certs reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-award"/></svg></span>
+          <h3>Data &amp; Programming</h3>
+          <ul class="cert-list">
+            <li class="cert"><a class="cert__img" href="assets/certs/coursera-intro-data-science-python.jpg" target="_blank" rel="noopener" aria-label="View certificate: Introduction to Data Science in Python"><img class="cert__thumb" src="assets/certs/thumbs/coursera-intro-data-science-python.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Introduction to Data Science in Python</b><span class="cert__meta">University of Michigan · Coursera · 11 Apr 2026</span><span class=cert__links><a href="assets/certs/coursera-intro-data-science-python.jpg" target="_blank" rel="noopener">View</a> <a href="https://coursera.org/verify/EUJDI95S9H9T" target="_blank" rel="noopener">Verify</a></span></div></li>
+            <li class="cert"><span class="cert__img cert__img--none" aria-hidden="true"></span><div><b>Data Collection &amp; Processing with Python</b><span class="cert__meta">University of Michigan · Coursera</span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/coursera-linear-algebra-ml.jpg" target="_blank" rel="noopener" aria-label="View certificate: Linear Algebra for Machine Learning and Data Science"><img class="cert__thumb" src="assets/certs/thumbs/coursera-linear-algebra-ml.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Linear Algebra for Machine Learning and Data Science</b><span class="cert__meta">DeepLearning.AI · Coursera · 17 Dec 2025</span><span class=cert__links><a href="assets/certs/coursera-linear-algebra-ml.jpg" target="_blank" rel="noopener">View</a> <a href="https://coursera.org/verify/ZTQKARUHDWE0" target="_blank" rel="noopener">Verify</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/satr-python-101.pdf" target="_blank" rel="noopener" aria-label="View certificate: Python 101 · 102 · 103 · 104"><img class="cert__thumb" src="assets/certs/thumbs/satr-python-101.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Python 101 · 102 · 103 · 104</b><span class="cert__meta">Satr (Tuwaiq Academy) · Jan 2026</span><span class=cert__links><a href="assets/certs/satr-python-101.pdf" target="_blank" rel="noopener">101</a> <a href="assets/certs/satr-python-102.pdf" target="_blank" rel="noopener">102</a> <a href="assets/certs/satr-python-103.pdf" target="_blank" rel="noopener">103</a> <a href="assets/certs/satr-python-104.pdf" target="_blank" rel="noopener">104</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/satr-sql-101.pdf" target="_blank" rel="noopener" aria-label="View certificate: SQL 101 · 102 · 103"><img class="cert__thumb" src="assets/certs/thumbs/satr-sql-101.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>SQL 101 · 102 · 103</b><span class="cert__meta">Satr (Tuwaiq Academy) · Jan – Feb 2026</span><span class=cert__links><a href="assets/certs/satr-sql-101.pdf" target="_blank" rel="noopener">101</a> <a href="assets/certs/satr-sql-102.pdf" target="_blank" rel="noopener">102</a> <a href="assets/certs/satr-sql-103.pdf" target="_blank" rel="noopener">103</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/satr-ml-101.pdf" target="_blank" rel="noopener" aria-label="View certificate: Machine Learning (ML) 101"><img class="cert__thumb" src="assets/certs/thumbs/satr-ml-101.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Machine Learning (ML) 101</b><span class="cert__meta">Satr (Tuwaiq Academy) · Apr 2026</span><span class=cert__links><a href="assets/certs/satr-ml-101.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/satr-intro-data-science.pdf" target="_blank" rel="noopener" aria-label="View certificate: Introduction to Data Science"><img class="cert__thumb" src="assets/certs/thumbs/satr-intro-data-science.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Introduction to Data Science</b><span class="cert__meta">Satr (Tuwaiq Academy) · Feb 2026</span><span class=cert__links><a href="assets/certs/satr-intro-data-science.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/git-github.pdf" target="_blank" rel="noopener" aria-label="View certificate: Git &amp; GitHub"><img class="cert__thumb" src="assets/certs/thumbs/git-github.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Git &amp; GitHub</b><span class="cert__meta">Pathy · 16-hour training program · 18 Aug 2026</span><span class=cert__links><a href="assets/certs/git-github.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+          </ul>
+        </div>
+        <div class="col-l card certs reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-award"/></svg></span>
+          <h3>Additional Certifications</h3>
+          <ul class="cert-list">
+            <li class="cert"><a class="cert__img" href="assets/certs/ibm-genai-data-analytics.pdf" target="_blank" rel="noopener" aria-label="View certificate: Supercharge Your Data Analytics with Generative AI"><img class="cert__thumb" src="assets/certs/thumbs/ibm-genai-data-analytics.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Supercharge Your Data Analytics with Generative AI</b><span class="cert__meta">IBM SkillsBuild · 27 Apr 2026</span><span class=cert__links><a href="assets/certs/ibm-genai-data-analytics.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/ibm-eyouth-plan.pdf" target="_blank" rel="noopener" aria-label="View certificate: EYOUTH Learning Plan"><img class="cert__thumb" src="assets/certs/thumbs/ibm-eyouth-plan.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>EYOUTH Learning Plan</b><span class="cert__meta">IBM SkillsBuild · 20 Jan 2026</span><span class=cert__links><a href="assets/certs/ibm-eyouth-plan.pdf" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/ai-pioneers-afaq-attendance.png" target="_blank" rel="noopener" aria-label="View certificate: Afaq AI Initiative — 3rd cohort"><img class="cert__thumb" src="assets/certs/thumbs/ai-pioneers-afaq-attendance.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Afaq AI Initiative — 3rd cohort</b><span class="cert__meta">AI Pioneers with eYouth &amp; IBM SkillsBuild · 17–20 Jan 2026 · certificate of attendance</span><span class=cert__links><a href="assets/certs/ai-pioneers-afaq-attendance.png" target="_blank" rel="noopener">View</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/ibm-badge-ai-agents.png" target="_blank" rel="noopener" aria-label="View certificate: IBM SkillsBuild badges"><img class="cert__thumb" src="assets/certs/thumbs/ibm-badge-ai-agents.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>IBM SkillsBuild badges</b><span class="cert__meta">Badges</span><span class=cert__links><a href="assets/certs/ibm-badge-ai-agents.png" target="_blank" rel="noopener">Unleashing the Power of AI Agents</a> · <a href="assets/certs/ibm-badge-llms.png" target="_blank" rel="noopener">Introduction to LLMs</a> · <a href="assets/certs/ibm-badge-first-chatbot.png" target="_blank" rel="noopener">Build Your First Chatbot</a> · <a href="assets/certs/ibm-badge-granite.png" target="_blank" rel="noopener">Summarizing Data with IBM Granite</a> · <a href="assets/certs/ibm-badge-text-to-speech.png" target="_blank" rel="noopener">Text to Speech with watsonx</a> · <a href="assets/certs/ibm-badge-genai-software.png" target="_blank" rel="noopener">Generative AI for Software Development</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/alibaba-ai-tools.pdf" target="_blank" rel="noopener" aria-label="View certificate: Tuwaiq Academy talks"><img class="cert__thumb" src="assets/certs/thumbs/alibaba-ai-tools.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Tuwaiq Academy talks</b><span class="cert__meta">Certificates of attendance</span><span class=cert__links><a href="assets/certs/alibaba-ai-tools.pdf" target="_blank" rel="noopener">AI Tools from Alibaba Cloud (22 Jul 2026)</a> · <a href="assets/certs/tuwaiq-talk-ai-systems-think.pdf" target="_blank" rel="noopener">How Do AI Systems Think? (29 Jul 2026)</a> · <a href="assets/certs/tuwaiq-talk-generative-ai.png" target="_blank" rel="noopener">Generative AI and the Future of Innovation (5 Aug 2026)</a></span></div></li>
+            <li class="cert"><a class="cert__img" href="assets/certs/tuwaiq-club-member-badge.png" target="_blank" rel="noopener" aria-label="View certificate: Tuwaiq Club member badge"><img class="cert__thumb" src="assets/certs/thumbs/tuwaiq-club-member-badge.webp" alt="" width="64" height="48" loading="lazy"></a><div><b>Tuwaiq Club member badge</b><span class="cert__meta">Tuwaiq Academy clubs</span><span class=cert__links><a href="assets/certs/tuwaiq-club-member-badge.png" target="_blank" rel="noopener">View</a></span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- VOLUNTEERING & ACTIVITIES -->
+    <section class="sec" id="volunteering" aria-labelledby="vol-title">
+      <div class="grid">
+        <header class="col-l sec__head reveal">
+          <p class="sec__num">07</p>
+          <h2 id="vol-title">Volunteering &amp; Activities</h2>
+          <p class="sec__sub">Giving time to the AI community.</p>
+        </header>
+        <div class="col-r"></div>
+        <article class="col-l card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-users"/></svg></span>
+          <div>
+            <h3>LEAP 2026</h3>
+            <p class="exp__role">Volunteer Representative — Artificial Intelligence Association</p>
+            <p class="exp__date">Aug – Sep 2026 · Riyadh</p>
+            <p>Represented the association in the SDAIA pavilion at LEAP 2026, engaging with visitors and supporting its presence and initiatives.</p>
+            <a class="exp__cert" href="assets/certs/leap26-ai-association.pdf" target="_blank" rel="noopener"><img class="cert__thumb" src="assets/certs/thumbs/leap26-ai-association.webp" alt="" width="64" height="48" loading="lazy"><span>Certificate of appreciation</span></a>
+          </div>
+        </article>
+        <article class="col-r card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-globe"/></svg></span>
+          <div>
+            <h3>GFEAI 2026</h3>
+            <p class="exp__role">Contributor — 4th UNESCO Global Forum on the Ethics of AI</p>
+            <p class="exp__date">14–17 Sep 2026 · Riyadh · with ICAIRE</p>
+            <p>Represented ICAIRE at its booth during the forum.</p>
+            <a class="exp__cert" href="assets/certs/unesco-global-forum-2026.pdf" target="_blank" rel="noopener"><img class="cert__thumb" src="assets/certs/thumbs/unesco-global-forum-2026.webp" alt="" width="64" height="48" loading="lazy"><span>Certificate of appreciation</span></a>
+          </div>
+        </article>
+        <article class="col-l card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-gear"/></svg></span>
+          <div>
+            <h3>UQU Robotics &amp; AI Club</h3>
+            <p class="exp__role">Advisor — Competitions &amp; Sports Activities Committee</p>
+            <p class="exp__date">Umm Al-Qura University · Makkah</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- ACHIEVEMENTS & HIGHLIGHTS -->
+    <section class="sec" id="achievements" aria-labelledby="ach-title">
+      <div class="grid">
+        <header class="col-l sec__head reveal">
+          <p class="sec__num">08</p>
+          <h2 id="ach-title">Achievements &amp; Highlights</h2>
+          <p class="sec__sub">Moments worth pinning.</p>
+        </header>
+        <div class="col-r"></div>
+        <article class="col-l card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-award"/></svg></span>
+          <div>
+            <h3>Kanz AI Hackathon 2026</h3>
+            <p class="exp__role">Certificate of Workshop Completion — Kanz AI Program</p>
+            <p class="exp__date">15 Jul 2026 · LAU Academy of Continuing Education</p>
+            <p>Completed the AI Training Hackathon and built an original, working AI-powered project; CookFinder was the AI Showcase Featured Project.</p>
+            <a class="exp__cert" href="assets/certs/kanz-ai-hackathon-2026.pdf" target="_blank" rel="noopener"><img class="cert__thumb" src="assets/certs/thumbs/kanz-ai-hackathon-2026.webp" alt="" width="64" height="48" loading="lazy"><span>View certificate</span></a>
+            <p class="links"><a class="btn btn--ghost btn--sm" href="https://try.ka.nz/ai/abdullahalsehli" target="_blank" rel="noopener"><svg class="i"><use href="#i-external"/></svg> Verify</a></p>
+          </div>
+        </article>
+        <article class="col-r card exp reveal" data-neuron>
+          <span class="port port--sq"><svg class="i"><use href="#i-eye"/></svg></span>
+          <div>
+            <h3>Digital Rainbow</h3>
+            <p class="exp__role">Project presentation — Nexus AIoT</p>
+            <p>Presented the Nexus AIoT graduation project: a touchless smart environment controlled by hand gestures.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="shelf" aria-hidden="true"></div>
+
+    <!-- CONTACT -->
+    <section class="sec contact" id="contact" aria-labelledby="contact-title">
+      <div class="grid">
+        <header class="col-l sec__head reveal">
+          <p class="sec__num">09</p>
+          <h2 id="contact-title">Let's Connect</h2>
+          <p class="sec__sub">Open to AI engineering roles, research and collaborations.</p>
+        </header>
+        <div class="col-r"></div>
+
+        <div class="col-l card contact__links reveal" data-neuron>
+          <span class="port"><svg class="i"><use href="#i-send"/></svg></span>
+          <ul>
+            <li>
+              <a href="mailto:abdullahalsehli7@gmail.com"><svg class="i"><use href="#i-mail"/></svg>abdullahalsehli7@gmail.com</a>
+              <button class="icon-btn" id="copyEmail" aria-label="Copy email address"><svg class="i"><use href="#i-copy"/></svg></button>
+            </li>
+            <li><a href="tel:+966545123413"><svg class="i"><use href="#i-phone"/></svg>+966 54 512 3413</a></li>
+            <li><a href="https://www.linkedin.com/in/abdullah-f-alsehli/" target="_blank" rel="noopener"><svg class="i"><use href="#i-linkedin"/></svg>linkedin.com/in/abdullah-f-alsehli</a></li>
+            <li><a href="https://github.com/abdullahf-77" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>github.com/abdullahf-77</a></li>
+          </ul>
+          <p class="status" id="copyStatus" role="status" aria-live="polite"></p>
+        </div>
+
+        <form class="col-r card form reveal" id="contactForm" data-neuron novalidate>
+          <span class="port"><svg class="i"><use href="#i-mail"/></svg></span>
+          <h3>Send a message</h3>
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" autocomplete="name" required>
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" rows="4" required></textarea>
+          <button class="btn btn--red" type="submit">Open in email app <svg class="i"><use href="#i-send"/></svg></button>
+          <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="tree-ground" id="treeGround" aria-hidden="true"></div>
+
+  <footer class="footer">
+    <p>© 2026 Abdullah Alsehli · Makkah, Saudi Arabia</p>
+    <a href="#home" class="btn btn--ghost btn--sm">Back to top ↑</a>
+  </footer>
+
+  <script src="js/tree.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
+
