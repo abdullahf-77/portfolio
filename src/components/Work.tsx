@@ -5,7 +5,7 @@ import { featured, more, type Project, type Shot } from '../content/projects';
 import { profile } from '../content/profile';
 import { GitHubIcon, Reveal, SectionHead } from './ui';
 import { GraphVisual, NexusVisual, RibhVisual } from './visuals';
-import { CookFinderVisual, Flow, JournalVisual, PPEVisual, ResultBars, Shots } from './showcase';
+import { CookFinderVisual, Flow, JournalVisual, PPEVisual, ResultBars, Shots, WaslVisual } from './showcase';
 import Viewer from './Viewer';
 
 const TONE = {
@@ -16,6 +16,7 @@ const TONE = {
 
 function Interactive({ p }: { p: Project }) {
   switch (p.interactive) {
+    case 'wasl': return <WaslVisual />;
     case 'ribh': return <RibhVisual />;
     case 'graph': return <GraphVisual />;
     case 'journal': return <JournalVisual />;
@@ -104,7 +105,7 @@ export default function Work() {
   return (
     <div id="work">
       <div data-tone="light" className="graph-paper">
-        <SectionHead kick="things I built" title={<>Six projects,<br />strongest first.</>}>
+        <SectionHead kick="things I built" title={<>Seven projects,<br />strongest first.</>}>
           Ranked by engineering depth, not looks. Each one has a live demo of how it works, its real architecture, and screenshots or results from the repo.
         </SectionHead>
       </div>

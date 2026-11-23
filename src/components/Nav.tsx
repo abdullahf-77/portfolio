@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, Volume2, VolumeX, X } from 'lucide-react';
+import { sound } from '../lib/sound';
 import { profile } from '../content/profile';
 import { GitHubIcon, LinkedInIcon } from './ui';
 
@@ -16,6 +17,8 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [inverted, setInverted] = useState(false);
   const [open, setOpen] = useState(false);
+  const [soundOn, setSoundOn] = useState(sound.on);
+  useEffect(() => sound.subscribe(setSoundOn), []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,6 +47,10 @@ export default function Nav() {
           ))}
         </ul>
         <div className="ms-auto flex items-center gap-3 md:ms-0">
+          <button data-silent onClick={() => sound.set(!soundOn)} aria-pressed={soundOn} aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}
+            className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${soundOn ? 'border-teal bg-teal text-white' : 'border-current opacity-80 hover:opacity-100'}`}>
+            {soundOn ? <Volume2 size={14} /> : <VolumeX size={14} />}<span className="hidden sm:inline">{soundOn ? 'Sound on' : 'Sound off'}</span>
+          </button>
           <a href={profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="opacity-80 hover:opacity-100"><GitHubIcon /></a>
           <a href={profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="opacity-80 hover:opacity-100"><LinkedInIcon /></a>
           <a href="#contact" className={`hidden rounded-full px-4 py-2 text-sm font-semibold no-underline sm:inline-block ${inverted ? 'bg-paper text-ink' : 'bg-ink text-paper'}`}>Say hi</a>

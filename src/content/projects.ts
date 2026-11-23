@@ -5,7 +5,7 @@ export type FlowStep = { label: string; detail: string; actor: 'user' | 'llm' | 
 export type Shot = { src: string; caption: string };
 export type Metric = { k: string; a: number; b?: number };
 
-export type Interactive = 'ribh' | 'journal' | 'graph' | 'ppe' | 'cookfinder' | 'nexus';
+export type Interactive = 'wasl' | 'ribh' | 'journal' | 'graph' | 'ppe' | 'cookfinder' | 'nexus';
 
 export type Project = {
   id: string;
@@ -28,8 +28,58 @@ export type Project = {
 
 export const featured: Project[] = [
   {
-    id: 'ribh',
+    id: 'wasl',
     no: '01',
+    title: 'Wasl',
+    category: 'Agentic AI · Full stack',
+    context: 'Team project · LangGraph · FastAPI · Next.js',
+    problem: 'Professionals rewrite the same achievement for LinkedIn, their CV and every application, and generic AI writers make it faster by inventing metrics, skills and titles.',
+    solution: 'One verified source of truth (confirmed achievements and an approved Master CV) that three LangGraph agents turn into LinkedIn posts, CV updates, honest tailored CVs and a skill-gap roadmap, with every output traceable back to it.',
+    decisions: [
+      { k: 'Never invent', v: 'Enforced in code, not only in prompts: a deterministic claim checker and evidence verification. Rewritten bullets that add claims are rejected.' },
+      { k: 'Model router', v: 'Groq, Gemini and OpenRouter adapters with task-tier model choice, retries with backoff, JSON-schema validation plus one repair round, and compatible fallback.' },
+      { k: 'Monitoring', v: 'Real events feed a live dashboard: p50/p95/p99 latency, tokens by provider, fallback rate, unsupported-claim rate and threshold alerts.' },
+      { k: 'Evaluation', v: '17 hand-written cases, 17/17 passed against real models; 23 backend tests covering units and end-to-end API journeys.' },
+      { k: 'My part', v: 'Team of four on Tuwaiq Academy’s AI Product Development programme. I authored the core platform commit (FastAPI backend, AI layer, Next.js front end, docs), the monitoring and evaluation run, and the job-recommendations feature.' },
+    ],
+    tags: ['LangGraph', 'FastAPI', 'Next.js', 'Supabase', 'Groq · Gemini', 'Pydantic', 'Recharts'],
+    links: [{ label: 'GitHub', href: 'https://github.com/Nadaalnashwan/wasl' }],
+    interactive: 'wasl',
+    interactiveLabel: 'Three agents',
+    flow: [
+      { label: 'Next.js client', detail: 'Dashboard, Post Studio, CV Manager, Tailor, Gap, Discovery, Monitoring; English and Arabic RTL', actor: 'user' },
+      { label: 'FastAPI routers', detail: 'Auth, achievements, posts, CV, career, discovery; monitoring middleware on every request', actor: 'code' },
+      [
+        { label: 'Content graph', detail: 'generate → claim_check → revise once', actor: 'llm' },
+        { label: 'Discovery graph', detail: 'sanitize → extract → verify_evidence → dedupe', actor: 'llm' },
+        { label: 'Career graph', detail: 'requirements → match → tailor + enforce | roadmap', actor: 'llm' },
+      ],
+      { label: 'Guard + AI Model Router', detail: 'Prompt-injection guard; schema-validated structured calls with retries and fallback', actor: 'code' },
+      { label: 'Groq · Gemini · OpenRouter', detail: 'Provider adapters; per-attempt telemetry', actor: 'model' },
+      { label: 'Deterministic checks', detail: 'claims.py (unsupported claims) and skills.py (explainable matching)', actor: 'code' },
+      { label: 'Postgres + RLS · metrics', detail: 'Supabase or SQLite; events become dashboard metrics and alerts', actor: 'data' },
+    ],
+    shots: [
+      { src: 'projects/wasl-landing.webp', caption: 'Wasl landing page in the “blueprint” theme of its hand-drawn design system.' },
+      { src: 'projects/wasl-flow.webp', caption: 'How the Wasl machine works: drop in your work, AI extracts and verifies, out comes your career.' },
+      { src: 'projects/wasl-features.webp', caption: 'Post Studio, living Master CV, honest tailoring, gap analyser and monitoring.' },
+    ],
+    results: {
+      title: 'Evaluation (17 real-model cases)',
+      legend: ['score'],
+      metrics: [
+        { k: 'Task success', a: 1 },
+        { k: 'Skill precision', a: 0.929 },
+        { k: 'Skill recall', a: 1 },
+        { k: 'Posts with no unsupported claims', a: 1 },
+      ],
+      note: '17/17 cases passed; one post needed the automatic revise step once. From docs/EVALUATION.md, which itself notes that 17 cases catch regressions but are not a statistically strong accuracy claim.',
+    },
+    tone: 'dark',
+  },
+  {
+    id: 'ribh',
+    no: '02',
     title: 'Ribh',
     category: 'Generative AI · Full stack',
     context: 'Llama · Next.js · TypeScript',
@@ -58,11 +108,11 @@ export const featured: Project[] = [
       { src: 'projects/ribh-workspace.webp', caption: 'Workspace: the requirements Llama extracted, with the missing fields flagged.' },
       { src: 'projects/ribh-example.webp', caption: 'The app’s own illustrative comparison (labelled in-app as made-up numbers): the cheapest unit price isn’t the cheapest real cost.' },
     ],
-    tone: 'dark',
+    tone: 'light',
   },
   {
     id: 'journal',
-    no: '02',
+    no: '03',
     title: 'Ethical AI Journal',
     category: 'AI research platform',
     context: 'ICAIRE · Python pipeline · React',
@@ -100,7 +150,7 @@ export const featured: Project[] = [
   },
   {
     id: 'rag',
-    no: '03',
+    no: '04',
     title: 'Research Paper Assistant',
     category: 'Agentic AI · RAG',
     context: 'LangGraph · SDAIA Academy final project',
@@ -137,11 +187,11 @@ export const featured: Project[] = [
       ],
       note: 'Overall Relatedness = 100 × (0.70·semantic + 0.15·citation + 0.10·agreement + 0.05·topic), straight from the README.',
     },
-    tone: 'light',
+    tone: 'dark',
   },
   {
     id: 'ppe',
-    no: '04',
+    no: '05',
     title: 'PPE Safety Monitoring',
     category: 'Computer vision',
     context: 'YOLO11n · ByteTrack · pose · SDAIA Academy capstone',
@@ -180,11 +230,11 @@ export const featured: Project[] = [
       note: 'Recall is the weak spot (the model misses some PPE), which is exactly why the alert logic treats “not detected” as unknown rather than a violation.',
       image: { src: 'projects/ppe-training.webp', caption: 'Training curves from the run.' },
     },
-    tone: 'dark',
+    tone: 'light',
   },
   {
     id: 'cookfinder',
-    no: '05',
+    no: '06',
     title: 'CookFinder',
     category: 'Computer vision · Full stack',
     context: 'YOLO · FastAPI · Docker · Kanz AI Hackathon',
@@ -216,7 +266,7 @@ export const featured: Project[] = [
   },
   {
     id: 'nexus',
-    no: '06',
+    no: '07',
     title: 'Nexus AIoT',
     category: 'Computer vision · IoT',
     context: 'Graduation project · OpenCV · MediaPipe',
@@ -243,7 +293,7 @@ export const featured: Project[] = [
       { label: 'Smart room', detail: '7 devices · 7 modes · password lock', actor: 'code' },
       { label: 'Dashboard + TTS', detail: 'OpenCV-rendered UI and spoken feedback', actor: 'ui' },
     ],
-    tone: 'light',
+    tone: 'dark',
   },
 ];
 
@@ -251,7 +301,6 @@ export type MiniProject = { title: string; area: string; text: string; tags: str
 
 export const more: MiniProject[] = [
   { title: 'Pneumonia Detection', area: 'Deep learning', text: 'MobileNetV2 transfer learning on chest X-rays: 81.57% test accuracy on 624 images, with training curves in the repo.', tags: ['TensorFlow', 'Keras', 'Transfer learning'], href: 'https://github.com/abdullahf-77/pneumonia-xray-classifier' },
-  { title: 'Wasl', area: 'Agentic AI', text: 'AI career platform: three LangGraph agents turn real achievements into LinkedIn posts and tailored CVs, with claim-checking so nothing is invented.', tags: ['LangGraph', 'FastAPI', 'Next.js'], note: 'Team project · Tuwaiq Academy · no public repo' },
   { title: 'Ethical-AI Atlas', area: 'AI research', text: 'Evidence base mapping AI-ethics research centres and literature against the UNESCO Recommendation principles.', tags: ['Python', 'FastAPI', 'React'], note: 'Internal to ICAIRE · private' },
   { title: 'Air Passengers Forecasting', area: 'Time series', text: 'SDAIA Academy capstone on a course kit: AutoARIMA reached MASE 0.647 vs 1.313 for seasonal-naive over eight rolling origins.', tags: ['AutoGluon', 'AutoARIMA'], href: 'https://github.com/abdullahf-77/international-airpassengers-project' },
   { title: 'Heart Disease Prediction', area: 'Machine learning', text: 'Logistic regression vs random forest on patient data, with feature importance.', tags: ['Scikit-learn', 'Pandas'], href: 'https://github.com/abdullahf-77/heart-disease-prediction' },

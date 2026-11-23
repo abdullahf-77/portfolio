@@ -205,3 +205,70 @@ export function Shots({ shots, dark, onOpen }: { shots: Shot[]; dark: boolean; o
     </div>
   );
 }
+
+/* ---------- Wasl: the three real LangGraph agents ---------- */
+type WNode = { id: string; kind: 'llm' | 'code' };
+const WASL_AGENTS: { name: string; what: string; nodes: (WNode | WNode[])[]; loop?: string }[] = [
+  {
+    name: 'Content', what: 'Turns a confirmed achievement into a LinkedIn post in six tones, English or Arabic.',
+    nodes: [{ id: 'generate', kind: 'llm' }, { id: 'claim_check', kind: 'code' }, { id: 'revise', kind: 'llm' }],
+    loop: 'claim_check → revise → claim_check, at most once; a clean post ends the run',
+  },
+  {
+    name: 'Discovery', what: 'Reads free text, certificates or GitHub repos and returns structured achievements.',
+    nodes: [{ id: 'sanitize', kind: 'code' }, { id: 'extract', kind: 'llm' }, { id: 'verify_evidence', kind: 'code' }, { id: 'dedupe', kind: 'code' }],
+  },
+  {
+    name: 'Career', what: 'Matches a CV to a job, then tailors it honestly or builds a gap roadmap.',
+    nodes: [{ id: 'requirements', kind: 'llm' }, { id: 'match', kind: 'code' }, [{ id: 'tailor → enforce', kind: 'llm' }, { id: 'roadmap', kind: 'llm' }]],
+  },
+];
+
+export function WaslVisual() {
+  const [a, setA] = useState(0);
+  const [step, setStep] = useState(-1);
+  const agent = WASL_AGENTS[a];
+  const flat = agent.nodes.length;
+  useEffect(() => { setStep(-1); }, [a]);
+  useEffect(() => {
+    if (step < 0 || step >= flat) return;
+    const id = setTimeout(() => setStep((s) => s + 1), 700);
+    return () => clearTimeout(id);
+  }, [step, flat]);
+  const node = (n: WNode, on: boolean, done: boolean) => (
+    <div key={n.id} className="rounded-lg border px-3 py-2 font-mono text-xs transition-all duration-300"
+      style={{ borderColor: on ? (n.kind === 'llm' ? '#5FB3B7' : '#D2D9DE') : 'rgba(210,217,222,.18)', background: on ? (n.kind === 'llm' ? 'rgba(95,179,183,.22)' : 'rgba(210,217,222,.16)') : done ? 'rgba(255,255,255,.04)' : 'transparent', transform: on ? 'scale(1.04)' : 'none' }}>
+      <span className={n.kind === 'llm' ? 'text-teal-2' : 'text-silver'}>{n.kind === 'llm' ? 'LLM' : 'code'}</span>
+      <b className="ms-2 font-semibold text-paper">{n.id}</b>
+    </div>
+  );
+  return (
+    <div className="rounded-[22px] border border-silver/15 bg-[#0B1218] p-5 text-paper sm:p-6">
+      <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Wasl agents">
+        {WASL_AGENTS.map((g, i) => (
+          <button key={g.name} role="tab" aria-selected={i === a} onClick={() => setA(i)}
+            className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${i === a ? 'bg-teal-2 text-ink' : 'bg-white/5 text-silver hover:bg-white/10'}`}>{g.name} agent</button>
+        ))}
+      </div>
+      <p className="mt-4 text-sm text-silver/85">{agent.what}</p>
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        {agent.nodes.map((n, i) => (
+          <div key={i} className="flex items-center gap-2">
+            {Array.isArray(n)
+              ? <div className="grid gap-1.5">{n.map((x) => node(x, step === i, step > i))}</div>
+              : node(n, step === i, step > i)}
+            {i < agent.nodes.length - 1 && <span className="text-silver/40">→</span>}
+          </div>
+        ))}
+        <span className="text-silver/40">→</span>
+        <span className={`rounded-lg px-3 py-2 font-mono text-xs font-semibold transition-colors ${step >= flat ? 'bg-teal-2 text-ink' : 'border border-silver/18 text-silver/60'}`}>END</span>
+      </div>
+      {agent.loop && <p className="mt-3 font-mono text-[.72rem] text-silver/60">↺ {agent.loop}</p>}
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+        <span className="flex gap-3 font-mono text-[.7rem] text-silver/70"><span><b className="text-teal-2">■</b> LLM</span><span><b className="text-silver">■</b> deterministic code</span></span>
+        <button onClick={() => setStep(0)} className="rounded-full bg-paper px-4 py-1.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5">Run the agent</button>
+      </div>
+      <p className="mt-3 text-xs text-silver/55">Node names are the real ones from backend/app/ai/workflows.</p>
+    </div>
+  );
+}
